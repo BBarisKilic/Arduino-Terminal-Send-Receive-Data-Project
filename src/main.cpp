@@ -18,7 +18,7 @@ void loop()
   if (BTserial.available() > 0)
   {
     //If you send not just a char but a whole word from the paired device, you must change "read" to "readString" and type of the variable "data" to String.
-    //e.g. data +=BTserial.readString()
+    //e.g. https://git.io/JtaYU
     data = BTserial.read();
   }
 
