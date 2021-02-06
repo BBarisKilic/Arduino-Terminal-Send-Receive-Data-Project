@@ -4,6 +4,7 @@
 SoftwareSerial BTserial(2, 3);
 int data;
 int loopCounter = 0;
+int delayTime = 250;
 
 void setup()
 {
@@ -22,10 +23,12 @@ void loop()
     data = BTserial.read();
   }
 
-  //Every second the Arduino will send data to other device. You can set a new frequency with changing not only "loopCounter" but also delay time.
+  //Every second the Arduino will send data to other device. You can set a new frequency by changing not only "loopCounter" but also "delayTime".
   if (loopCounter == 4)
   {
+    //Reseting loopCounter
     loopCounter = 0;
+
     if (data == 'a')
     {
       //It is important to use "println" instead of "print" or "write"!
@@ -47,5 +50,5 @@ void loop()
       BTserial.println("no match!");
     }
   }
-  delay(250);
+  delay(delayTime);
 }
